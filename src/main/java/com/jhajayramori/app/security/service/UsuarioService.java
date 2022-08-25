@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jhajayramori.app.security.entity.Usuario;
+import com.jhajayramori.app.security.entity.User;
 import com.jhajayramori.app.security.repository.iUsuarioRepository;
 
 @Service
@@ -17,19 +17,19 @@ public class UsuarioService {
 	@Autowired
 	iUsuarioRepository iusuarioRepo;
 	
-	public Optional<Usuario> getByNombreUsuario(String nombreUsuario){
-		return iusuarioRepo.finByNombreUsuario(nombreUsuario);
+	public Optional<User> getByNombreUsuario(String nombreUsuario){
+		return iusuarioRepo.findByNombreUsuario(nombreUsuario);
 	}
 
 	public boolean existsByNombreUsuario(String nombreUsuario) {
-		return iusuarioRepo.existByNombreUsuario(nombreUsuario);
+		return iusuarioRepo.existsByNombreUsuario(nombreUsuario);
 	}
 	
 	public boolean existsByEmail(String email) {
-		return iusuarioRepo.existByEmail(email);
+		return iusuarioRepo.existsByEmail(email);
 				}
 	
-	public void save(Usuario usuario) {
+	public void save(User usuario) {
 		iusuarioRepo.save(usuario);
 	}
 }

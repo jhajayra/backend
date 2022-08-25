@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
-public class Usuario {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -36,10 +36,10 @@ public class Usuario {
 
     //CONSTRUCTORES
     
-    public Usuario() {
+    public User() {
     }
 
-    public Usuario(String nombre, String nombreUsuario, String email, String password) {
+    public User(String nombre, String nombreUsuario, String email, String password) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.email = email;

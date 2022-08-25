@@ -36,9 +36,9 @@ com\jhajayramori\app\repository\EduRepo.class
 com\jhajayramori\app\model\Skills.class
 com\jhajayramori\app\security\jwt\JwtEntryPoint.class
 com\jhajayramori\app\security\controller\Mensaje.class
+com\jhajayramori\app\security\entity\User.class
 com\jhajayramori\app\security\dto\JwtDto.class
 com\jhajayramori\app\security\dto\NuevoUsuario.class
 com\jhajayramori\app\controller\UsuarioController.class
 com\jhajayramori\app\service\SkillsServ.class
 com\jhajayramori\app\PortfolioApplication.class
-com\jhajayramori\app\security\entity\Usuario.class

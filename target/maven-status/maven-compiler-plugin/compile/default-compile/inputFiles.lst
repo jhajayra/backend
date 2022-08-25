@@ -1,5 +1,4 @@
 C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\security\entity\Rol.java
-C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\security\entity\Usuario.java
 C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\repository\ProyeRepo.java
 C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\service\ISkillsServ.java
 C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\security\controller\AuthController.java
@@ -33,6 +32,7 @@ C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jha
 C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\security\jwt\JwtTokenFilter.java
 C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\controller\ExpeController.java
 C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\security\dto\NuevoUsuario.java
+C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\security\entity\User.java
 C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\model\Proyectos.java
 C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\model\Experiencia.java
 C:\Users\JHAJAYRA\Desktop\Spring\Proyects Spring\portfolio\src\main\java\com\jhajayramori\app\service\IUsuarioServ.java

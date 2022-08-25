@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jhajayramori.app.security.entity.Usuario;
+import com.jhajayramori.app.security.entity.User;
 import com.jhajayramori.app.security.enums.RolNombre;
 import com.jhajayramori.app.security.dto.JwtDto;
 import com.jhajayramori.app.security.dto.LoginUsuario;
@@ -64,7 +64,7 @@ public class AuthController {
 	            return new ResponseEntity<>(new Mensaje("Existing Email"),
 	                    HttpStatus.BAD_REQUEST);
 
-	        Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),
+	        User usuario = new User(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),
 	                nuevoUsuario.getEmail(),
 	                passwordEncoder.encode(nuevoUsuario.getPassword()));
 
