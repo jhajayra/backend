@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -20,11 +22,15 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Long idPer;
 	 
+	@NotNull
+	@NotBlank
 	@Column(length = 50)
 	 private String nombreCompleto;
 	 
+	@Column(length = 50)
 	private String titulo;
 	
+	@NotBlank
 	private String descripcion;
 
 	

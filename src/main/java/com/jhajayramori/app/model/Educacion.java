@@ -2,10 +2,12 @@ package com.jhajayramori.app.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 
@@ -21,11 +23,16 @@ public class Educacion implements Serializable {
     private Long idEdu;
     
     @NotNull
+    @NotBlank
+    @Column(length = 50)
     private String tituloEdu;
     
-    @NotNull
+ 
+    @NotBlank
+    @Column(length = 50)
     private String lugarEdu;
     
+    @Column(length = 4)
     private int anioEdu;
 
     public Educacion(){
