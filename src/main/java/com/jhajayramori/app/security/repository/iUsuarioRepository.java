@@ -7,16 +7,13 @@ import org.springframework.stereotype.Repository;
 
 import com.jhajayramori.app.security.entity.User;
 
-@Repository
-public interface iUsuarioRepository extends JpaRepository <User, Integer>{
-	
-	Optional <User> findByNombreUsuario(String nombreUsuario);
-	
-	boolean existsByNombreUsuario(String nombreUsuario);
-	
-	boolean existsByEmail(String email);
 
-	
-	
+@Repository
+public interface iUsuarioRepository extends JpaRepository<User, Integer>{
+    Optional<User> findByNombreUsuario(String nombreUsuario);
+    
+    boolean existsByNombreUsuario(String nombreUsuario);
+    boolean existsByEmail(String email);
+    
 
 }

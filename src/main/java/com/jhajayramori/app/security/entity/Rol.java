@@ -10,31 +10,27 @@ import javax.validation.constraints.NotNull;
 
 import com.jhajayramori.app.security.enums.RolNombre;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 public class Rol {
-	
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	@NotNull
-	@Enumerated(EnumType.STRING)
-	private RolNombre rolNombre;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	public Rol() {
-	}
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private RolNombre rolNombre;
 
-	public Rol(@NotNull RolNombre rolNombre) {
-			this.rolNombre = rolNombre;
-	}
+    public Rol() {
+    }
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Rol(RolNombre rolNombre) {
+        this.rolNombre = rolNombre;
+    }
 
 	public RolNombre getRolNombre() {
 		return rolNombre;
@@ -43,6 +39,8 @@ public class Rol {
 	public void setRolNombre(RolNombre rolNombre) {
 		this.rolNombre = rolNombre;
 	}
+
+}
 	
 	
 	
@@ -52,4 +50,4 @@ public class Rol {
 	
 	
 
-}
+

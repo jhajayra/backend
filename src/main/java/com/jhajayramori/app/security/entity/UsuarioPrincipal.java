@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class UsuarioPrincipal implements UserDetails{
 	
+	
+	
 	private String nombre;
 	
 	private String nombreUsuario;

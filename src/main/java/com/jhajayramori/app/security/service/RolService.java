@@ -1,5 +1,6 @@
 package com.jhajayramori.app.security.service;
 
+
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -11,19 +12,20 @@ import com.jhajayramori.app.security.entity.Rol;
 import com.jhajayramori.app.security.enums.RolNombre;
 import com.jhajayramori.app.security.repository.iRolRepository;
 
+
+
 @Service
 @Transactional
 public class RolService {
+    @Autowired
+    iRolRepository irolRepository;
 
-	@Autowired
-	iRolRepository irolRepository;
-	
-	public Optional <Rol> getByRolNombre(RolNombre rolNombre){
-		return irolRepository.findByRolNombre(rolNombre);
-	}
-	
-	public void save(Rol rol) {
-		irolRepository.save(rol);
-	}
-	
+    public Optional<Rol> getByRolNombre(RolNombre rolNombre){
+        return irolRepository.findByRolNombre(rolNombre);
+    }
+    public void save(Rol rol){
+        irolRepository.save(rol);
+    }
+
+    
 }
