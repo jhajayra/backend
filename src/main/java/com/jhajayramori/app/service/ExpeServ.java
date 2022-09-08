@@ -22,6 +22,17 @@ public class ExpeServ implements IExpeServ{
         this.expeRepo = expeRepo;
     }
 
+    @Override
+    public List <Experiencia> listaExp(){
+    	return expeRepo.findAll();
+    }
+    
+    @Override
+    public Experiencia buscarExp(Long id) {
+    	return expeRepo.findById(id).orElse(null);
+    }
+
+   
     
     @Override
     public Experiencia agregarExp(Experiencia experiencia){
@@ -39,16 +50,8 @@ public class ExpeServ implements IExpeServ{
         
     }
     
-    @Override
-    public List <Experiencia> listaExp(){
-            return expeRepo.findAll();
-        }
 
 
-    @Override
-    public Experiencia buscarExp(Long id) {
-          return expeRepo.findById(id).orElse(null);
-    }
 
 
 
