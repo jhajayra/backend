@@ -30,6 +30,7 @@ public class Usuario implements Serializable {
 	private String titulo;
 	
 	@NotBlank
+	@Column(length = 600)
 	private String descripcion;
 
 	

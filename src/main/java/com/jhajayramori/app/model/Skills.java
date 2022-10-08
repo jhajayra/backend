@@ -22,7 +22,7 @@ public class Skills implements Serializable {
 	
 	@NotBlank
 	@NotNull
-	@Column(length = 30)
+	@Column(length = 30, unique = true)
     private String nombreSkill;
 	
 	@NotBlank

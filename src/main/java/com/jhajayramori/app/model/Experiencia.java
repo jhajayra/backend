@@ -22,7 +22,7 @@ public class Experiencia implements Serializable {
 	
 	@NotBlank
 	@NotNull
-	@Column(length = 30)
+	@Column(length = 50, unique = true)
     private String cargoExp;
 	
 	@Column(length = 4)

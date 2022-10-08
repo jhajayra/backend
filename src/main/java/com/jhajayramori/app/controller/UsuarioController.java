@@ -1,6 +1,7 @@
 package com.jhajayramori.app.controller;
 
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +49,11 @@ public class UsuarioController {
 		if(iusuarioServ.buscarUsuario(id)==null) {
 	 		return new ResponseEntity<>("Project Not Exist", HttpStatus.NOT_FOUND);
 	 	}
-	    Usuario actualUsuario=iusuarioServ.editarUsuario(usuario);
+		if ( StringUtils.isAnyBlank(usuario.getNombreCompleto(), usuario.getTitulo(), usuario.getDescripcion() )) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+			
+	    Usuario actualUsuario = iusuarioServ.editarUsuario(usuario);
 	    return new ResponseEntity<>(actualUsuario, HttpStatus.OK);
 
 	}

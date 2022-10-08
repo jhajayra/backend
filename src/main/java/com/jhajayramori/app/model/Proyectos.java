@@ -21,7 +21,7 @@ public class Proyectos implements Serializable {
 	
 	@NotBlank
 	@NotNull
-	@Column(length = 50)
+	@Column(length = 50, unique = true)
     private String nombreProye;
 	
 	@NotBlank

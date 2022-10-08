@@ -24,7 +24,7 @@ public class Educacion implements Serializable {
     
     @NotNull
     @NotBlank
-    @Column(length = 50)
+    @Column(length = 50, unique = true)
     private String tituloEdu;
     
  
