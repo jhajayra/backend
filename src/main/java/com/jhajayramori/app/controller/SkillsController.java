@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jhajayramori.app.model.Skills;
 import com.jhajayramori.app.service.ISkillsServ;
 
+
 @RestController
 @RequestMapping("/skills")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -82,4 +83,11 @@ public class SkillsController {
 
 	}
 
+
+
+	
+	
+	
+	
+	
 }

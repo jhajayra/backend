@@ -14,7 +14,7 @@ import com.jhajayramori.app.repository.EduRepo;
 public class EduServ implements IEduServ {
 
     @Autowired
-     EduRepo educaRepo;
+    private final EduRepo educaRepo;
 
     public EduServ(EduRepo educaRepo) {
         this.educaRepo = educaRepo;
