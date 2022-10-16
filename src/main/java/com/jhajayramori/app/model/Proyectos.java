@@ -35,12 +35,14 @@ public class Proyectos implements Serializable {
 
     }
 
-    public Proyectos (Long idProye, String nombreProye, String descriProye, int anioProye) {
-        this.idProye=idProye;
-        this.nombreProye=nombreProye;
-        this.descriProye=descriProye;
-        this.anioProye=anioProye;
-    }
+	public Proyectos(Long idProye, @NotBlank @NotNull String nombreProye, @NotBlank String descriProye, int anioProye) {
+		this.idProye = idProye;
+		this.nombreProye = nombreProye;
+		this.descriProye = descriProye;
+		this.anioProye = anioProye;
+	}
+
+
 
 	public Long getIdProye() {
 		return idProye;

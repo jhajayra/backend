@@ -53,7 +53,8 @@ public class ExpeController {
 		if (iexpeServ.buscarExp(id) == null) {
 			return new ResponseEntity<>("Experience Not Exist", HttpStatus.NOT_FOUND);
 		} 
-		if (StringUtils.isAnyBlank(experiencia.getCargoExp(), experiencia.getLugarExp()) ) {
+		if (StringUtils.isAnyBlank(experiencia.getCargoExp(), experiencia.getLugarExp(),
+				experiencia.getMesInicio(), experiencia.getMesFin()) ) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		Experiencia expActual = iexpeServ.editarExp(experiencia);
@@ -63,7 +64,8 @@ public class ExpeController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/create")
 	public ResponseEntity<?> crearExp(@RequestBody Experiencia experiencia) {
-		if (StringUtils.isAnyBlank(experiencia.getCargoExp(), experiencia.getLugarExp()) ) {
+		if (StringUtils.isAnyBlank(experiencia.getCargoExp(), experiencia.getLugarExp(),
+				experiencia.getMesInicio(), experiencia.getMesFin()) ) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		Experiencia nuevaExp = iexpeServ.agregarExp(experiencia);

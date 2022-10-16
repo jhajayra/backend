@@ -39,14 +39,13 @@ public class Usuario implements Serializable {
 	}
 
 	
-	
-	public Usuario(Long idPer, String nombreCompleto, String titulo, String descripcion) {
-		super();
+	public Usuario(Long idPer, @NotNull @NotBlank String nombreCompleto, String titulo, @NotBlank String descripcion) {
 		this.idPer = idPer;
 		this.nombreCompleto = nombreCompleto;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 	}
+
 
 
 

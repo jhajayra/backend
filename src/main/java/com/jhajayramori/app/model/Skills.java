@@ -34,11 +34,13 @@ public class Skills implements Serializable {
 
     }
 
-    public Skills(Long idSkill, String nombreSkill, int porcentaje) {
-        this.idSkill=idSkill;
-        this.nombreSkill=nombreSkill;
-        this.porcentaje=porcentaje;
-    }
+	public Skills(Long idSkill, @NotBlank @NotNull String nombreSkill, @NotBlank @NotNull int porcentaje) {
+		this.idSkill = idSkill;
+		this.nombreSkill = nombreSkill;
+		this.porcentaje = porcentaje;
+	}
+
+
 
 	public Long getIdSkill() {
 		return idSkill;

@@ -31,4 +31,8 @@ public class UsuarioService {
     public void save(User usuario){
         iusuarioRepository.save(usuario);
     }
+    
+   public User ver(int id) {
+	   return iusuarioRepository.findById(id).orElse(null);
+   }
 }

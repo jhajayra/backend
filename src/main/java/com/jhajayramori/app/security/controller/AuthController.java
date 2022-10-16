@@ -17,11 +17,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jhajayramori.app.model.Educacion;
 import com.jhajayramori.app.security.dto.JwtDto;
 import com.jhajayramori.app.security.dto.LoginUsuario;
 import com.jhajayramori.app.security.dto.NuevoUsuario;
@@ -101,4 +105,31 @@ public class AuthController {
 
     }
 
+    @GetMapping("/ver/{id}")
+	public ResponseEntity<?> verUsuario(@PathVariable("id") int id) {
+		User user =usuarioService.ver(id);
+				return new ResponseEntity<>(user, HttpStatus.OK);
+	}
+    
+    @PatchMapping("/update/{id}")
+    public ResponseEntity<?> actualizar(@Valid @RequestBody NuevoUsuario nuevoUsuario,
+            BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return new ResponseEntity<>(new Mensaje("Campo mal ingresado o email no válido"),
+                    HttpStatus.BAD_REQUEST);
+
+        
+
+        if (usuarioService.existsByEmail(nuevoUsuario.getEmail()))
+            return new ResponseEntity<>(new Mensaje("Email existente"),
+                    HttpStatus.BAD_REQUEST);
+
+        User usuario = new User(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),
+                nuevoUsuario.getEmail(),
+                passwordEncoder.encode(nuevoUsuario.getPassword()));
+
+        usuarioService.save(usuario);
+        return new ResponseEntity<>(new Mensaje("Usuario Actualizado Correctamente"), HttpStatus.OK);
+
+    }
 }

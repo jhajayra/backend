@@ -38,13 +38,14 @@ public class Educacion implements Serializable {
     public Educacion(){
     }
     
-    public Educacion (Long idEdu, String tituloEdu,int anioEdu, String lugarEdu ){
-     
-        this.idEdu = idEdu;
-        this.tituloEdu = tituloEdu;
-        this.anioEdu = anioEdu;        
-        this.lugarEdu = lugarEdu;
-    }
+    public Educacion(Long idEdu, @NotNull @NotBlank String tituloEdu, @NotBlank String lugarEdu, int anioEdu) {
+		this.idEdu = idEdu;
+		this.tituloEdu = tituloEdu;
+		this.lugarEdu = lugarEdu;
+		this.anioEdu = anioEdu;
+	}
+
+
 
 	public Long getIdEdu() {
 		return idEdu;
