@@ -35,4 +35,10 @@ public class UsuarioService {
    public User ver(int id) {
 	   return iusuarioRepository.findById(id).orElse(null);
    }
+   
+   public void borrar(int id) {
+	   iusuarioRepository.deleteById(id);
+   }
+   
+   
 }
