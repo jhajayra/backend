@@ -7,11 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
-@Table(name = "usuario")
+
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 356311062995687933L;
@@ -20,11 +21,16 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Long idPer;
 	 
+	@NotNull
+	@NotBlank
 	@Column(length = 50)
 	 private String nombreCompleto;
 	 
+	@Column(length = 50)
 	private String titulo;
 	
+	@NotBlank
+	@Column(length = 600)
 	private String descripcion;
 
 	
@@ -33,14 +39,13 @@ public class Usuario implements Serializable {
 	}
 
 	
-	
-	public Usuario(Long idPer, String nombreCompleto, String titulo, String descripcion) {
-		super();
+	public Usuario(Long idPer, @NotNull @NotBlank String nombreCompleto, String titulo, @NotBlank String descripcion) {
 		this.idPer = idPer;
 		this.nombreCompleto = nombreCompleto;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 	}
+
 
 
 

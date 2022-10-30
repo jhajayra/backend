@@ -2,10 +2,13 @@ package com.jhajayramori.app.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -16,18 +19,28 @@ public class Skills implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSkill;
+	
+	@NotBlank
+	@NotNull
+	@Column(length = 30, unique = true)
     private String nombreSkill;
+	
+	@NotBlank
+	@NotNull
+	@Column(length = 3)
     private int porcentaje;
 
     public Skills() {
 
     }
 
-    public Skills(Long idSkill, String nombreSkill, int porcentaje) {
-        this.idSkill=idSkill;
-        this.nombreSkill=nombreSkill;
-        this.porcentaje=porcentaje;
-    }
+	public Skills(Long idSkill, @NotBlank @NotNull String nombreSkill, @NotBlank @NotNull int porcentaje) {
+		this.idSkill = idSkill;
+		this.nombreSkill = nombreSkill;
+		this.porcentaje = porcentaje;
+	}
+
+
 
 	public Long getIdSkill() {
 		return idSkill;

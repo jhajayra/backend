@@ -2,9 +2,11 @@ package com.jhajayramori.app.controller;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,22 +50,30 @@ public class ProyeController {
 		return new ResponseEntity<>(proyecto, HttpStatus.OK);  
 	}
 	
-	
+	@PreAuthorize("hasRole('ADMIN')")
 	 @PutMapping("/update/{id}")
 	    public ResponseEntity<?> actualizarProye(@PathVariable("id") Long id, @RequestBody Proyectos proyecto){
 		 	if(iproyeServ.buscarProye(id)==null) {
 		 		return new ResponseEntity<>("Project Not Exist", HttpStatus.NOT_FOUND);
 		 	}
+		 	if (StringUtils.isAnyBlank(proyecto.getNombreProye(), proyecto.getDescriProye() ) ) {
+	    		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	    		}
 	        Proyectos proyeActual = iproyeServ.editarProye(proyecto);
 	        return new ResponseEntity<>(proyeActual, HttpStatus.OK);
 	    }
 	 
+	@PreAuthorize("hasRole('ADMIN')")
 	 @PostMapping("/create")
 	    public ResponseEntity <?> crearProye(@RequestBody Proyectos proyecto){
+		 if (StringUtils.isAnyBlank(proyecto.getNombreProye(), proyecto.getDescriProye() ) ) {
+	    		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	    		}
 	        Proyectos nuevoProye = iproyeServ.agregarProye(proyecto);
 	        return new ResponseEntity<>(nuevoProye, HttpStatus.OK);
 	    }
 	 
+	@PreAuthorize("hasRole('ADMIN')")
 	 @DeleteMapping("/delete/{id}")
 	    public ResponseEntity<?> borrarProye(@PathVariable("id") Long id){
 	        if (iproyeServ.buscarProye(id)==null){

@@ -1,9 +1,11 @@
 package com.jhajayramori.app.controller;
 
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,12 +42,18 @@ public class UsuarioController {
 	    return new ResponseEntity<>(usuario, HttpStatus.OK);
 	    }
 	
+	
+	@PreAuthorize("hasRole('ADMIN')")
 	@PutMapping("/update/{id}")
 	public ResponseEntity<?> actualizarUsuario(@PathVariable("id") Long id, @RequestBody Usuario usuario){
 		if(iusuarioServ.buscarUsuario(id)==null) {
 	 		return new ResponseEntity<>("Project Not Exist", HttpStatus.NOT_FOUND);
 	 	}
-	    Usuario actualUsuario=iusuarioServ.editarUsuario(usuario);
+		if ( StringUtils.isAnyBlank(usuario.getNombreCompleto(), usuario.getTitulo(), usuario.getDescripcion() )) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+			
+	    Usuario actualUsuario = iusuarioServ.editarUsuario(usuario);
 	    return new ResponseEntity<>(actualUsuario, HttpStatus.OK);
 
 	}
