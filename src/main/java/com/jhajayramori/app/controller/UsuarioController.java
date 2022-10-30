@@ -21,7 +21,7 @@ import com.jhajayramori.app.service.IUsuarioServ;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://jhajayra-mori.web.app")
 public class UsuarioController {
    
    

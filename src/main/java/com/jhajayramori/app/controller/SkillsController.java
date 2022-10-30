@@ -23,7 +23,7 @@ import com.jhajayramori.app.service.ISkillsServ;
 
 @RestController
 @RequestMapping("/skills")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://jhajayra-mori.web.app")
 public class SkillsController {
 
 	@Autowired

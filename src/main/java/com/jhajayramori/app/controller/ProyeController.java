@@ -22,7 +22,7 @@ import com.jhajayramori.app.service.IProyeServ;
 
 @RestController
 @RequestMapping("/projects")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://jhajayra-mori.web.app")
 public class ProyeController {
 
 	@Autowired

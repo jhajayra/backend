@@ -22,7 +22,7 @@ import com.jhajayramori.app.service.IEduServ;
 
 @RestController
 @RequestMapping("/education")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://jhajayra-mori.web.app")
 public class EduController {
 
 	@Autowired
