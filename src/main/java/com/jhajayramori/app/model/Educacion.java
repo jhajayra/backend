@@ -34,16 +34,27 @@ public class Educacion implements Serializable {
     
     @Column(length = 4)
     private int anioEdu;
+    
+    private String urlEdu;
 
     public Educacion(){
     }
     
-    public Educacion(Long idEdu, @NotNull @NotBlank String tituloEdu, @NotBlank String lugarEdu, int anioEdu) {
+    
+
+
+
+	public Educacion(Long idEdu, @NotNull @NotBlank String tituloEdu, @NotBlank String lugarEdu, int anioEdu,
+			String urlEdu) {
+		super();
 		this.idEdu = idEdu;
 		this.tituloEdu = tituloEdu;
 		this.lugarEdu = lugarEdu;
 		this.anioEdu = anioEdu;
+		this.urlEdu = urlEdu;
 	}
+
+
 
 
 
@@ -78,6 +89,23 @@ public class Educacion implements Serializable {
 	public void setAnioEdu(int anioEdu) {
 		this.anioEdu = anioEdu;
 	}
+
+
+
+
+
+	public String getUrlEdu() {
+		return urlEdu;
+	}
+
+
+
+
+
+	public void setUrlEdu(String urlEdu) {
+		this.urlEdu = urlEdu;
+	}
     
+	
     
 }
