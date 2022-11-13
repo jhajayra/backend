@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -15,6 +17,8 @@ public class Proyectos implements Serializable {
 
     
 	private static final long serialVersionUID = -7373633395370740854L;
+	
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProye;
@@ -31,18 +35,32 @@ public class Proyectos implements Serializable {
 	@Column(length = 4)
     private int anioProye;
 
-    public Proyectos (){
+	@ManyToOne
+    @JoinColumn(name = "id_usuario",referencedColumnName = "idPer")
+    private Usuario usuario;
 
-    }
+	public Proyectos() {
+		super();
+	}
 
-	public Proyectos(Long idProye, @NotBlank @NotNull String nombreProye, @NotBlank String descriProye, int anioProye) {
+	public Proyectos(Long idProye, @NotBlank @NotNull String nombreProye, @NotBlank String descriProye, int anioProye,
+			Usuario usuario) {
+		super();
 		this.idProye = idProye;
 		this.nombreProye = nombreProye;
 		this.descriProye = descriProye;
 		this.anioProye = anioProye;
+		this.usuario = usuario;
 	}
 
-
+	public Proyectos(@NotBlank @NotNull String nombreProye, @NotBlank String descriProye, int anioProye,
+			Usuario usuario) {
+		super();
+		this.nombreProye = nombreProye;
+		this.descriProye = descriProye;
+		this.anioProye = anioProye;
+		this.usuario = usuario;
+	}
 
 	public Long getIdProye() {
 		return idProye;
@@ -75,6 +93,17 @@ public class Proyectos implements Serializable {
 	public void setAnioProye(int anioProye) {
 		this.anioProye = anioProye;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	
+	
     
     
     

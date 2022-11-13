@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -26,13 +28,25 @@ public class SoftSkills implements Serializable {
 	@Column(length = 50, unique = true)
     private String nombreSoft;
 
-	public SoftSkills(Long idSoft, @NotBlank @NotNull String nombreSoft) {
-		this.idSoft = idSoft;
-		this.nombreSoft = nombreSoft;
-	}
+	@ManyToOne
+    @JoinColumn(name = "id_usuario",referencedColumnName = "idPer")
+    private Usuario usuario;
 
 	public SoftSkills() {
-		
+		super();
+	}
+
+	public SoftSkills(Long idSoft, @NotBlank @NotNull String nombreSoft, Usuario usuario) {
+		super();
+		this.idSoft = idSoft;
+		this.nombreSoft = nombreSoft;
+		this.usuario = usuario;
+	}
+
+	public SoftSkills(@NotBlank @NotNull String nombreSoft, Usuario usuario) {
+		super();
+		this.nombreSoft = nombreSoft;
+		this.usuario = usuario;
 	}
 
 	public Long getIdSoft() {
@@ -50,6 +64,15 @@ public class SoftSkills implements Serializable {
 	public void setNombreSoft(String nombreSoft) {
 		this.nombreSoft = nombreSoft;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	
 	
 	

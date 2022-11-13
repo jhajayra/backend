@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -44,17 +46,21 @@ public class Experiencia implements Serializable {
 	@NotBlank
 	@Column(length = 10)
 	private String mesFin;
+	
+	@ManyToOne
+    @JoinColumn(name = "id_usuario",referencedColumnName = "idPer")
+    private Usuario usuario;
 
-    public Experiencia(){
-    }
+	public Experiencia() {
+		super();
+	}
 
 	
-
 	
-
-
 	public Experiencia(Long idExp, @NotBlank @NotNull String cargoExp, @NotBlank String lugarExp,
-			@NotNull int anioInicio, @NotBlank String mesInicio, @NotNull int anioFin, @NotBlank String mesFin) {
+			@NotNull @NotBlank int anioInicio, @NotBlank String mesInicio, @NotNull @NotBlank int anioFin,
+			@NotBlank String mesFin, Usuario usuario) {
+		super();
 		this.idExp = idExp;
 		this.cargoExp = cargoExp;
 		this.lugarExp = lugarExp;
@@ -62,10 +68,22 @@ public class Experiencia implements Serializable {
 		this.mesInicio = mesInicio;
 		this.anioFin = anioFin;
 		this.mesFin = mesFin;
+		this.usuario = usuario;
 	}
 
 
 
+	public Experiencia(@NotBlank @NotNull String cargoExp, @NotBlank String lugarExp, @NotNull @NotBlank int anioInicio,
+			@NotBlank String mesInicio, @NotNull @NotBlank int anioFin, @NotBlank String mesFin, Usuario usuario) {
+		super();
+		this.cargoExp = cargoExp;
+		this.lugarExp = lugarExp;
+		this.anioInicio = anioInicio;
+		this.mesInicio = mesInicio;
+		this.anioFin = anioFin;
+		this.mesFin = mesFin;
+		this.usuario = usuario;
+	}
 
 
 
@@ -150,6 +168,22 @@ public class Experiencia implements Serializable {
 	public void setMesFin(String mesFin) {
 		this.mesFin = mesFin;
 	}
+
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
+
+   
 	
 		
 

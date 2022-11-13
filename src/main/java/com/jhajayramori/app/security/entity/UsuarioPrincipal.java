@@ -11,7 +11,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class UsuarioPrincipal implements UserDetails{
 	
 	
-	
+
+	private static final long serialVersionUID = 3463945822238800965L;
+
 	private String nombre;
 	
 	private String nombreUsuario;

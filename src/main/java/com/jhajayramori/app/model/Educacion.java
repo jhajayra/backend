@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -36,27 +38,36 @@ public class Educacion implements Serializable {
     private int anioEdu;
     
     private String urlEdu;
-
-    public Educacion(){
-    }
     
-    
+    @ManyToOne
+    @JoinColumn(name = "id_usuario",referencedColumnName = "idPer" )
+    private Usuario usuario;
+    //HAY QUE HACER QUE SE CONVIERTAN EN FOREIGN KEYS
 
-
+	public Educacion() {
+		super();
+	}
 
 	public Educacion(Long idEdu, @NotNull @NotBlank String tituloEdu, @NotBlank String lugarEdu, int anioEdu,
-			String urlEdu) {
+			String urlEdu, Usuario usuario) {
 		super();
 		this.idEdu = idEdu;
 		this.tituloEdu = tituloEdu;
 		this.lugarEdu = lugarEdu;
 		this.anioEdu = anioEdu;
 		this.urlEdu = urlEdu;
+		this.usuario = usuario;
 	}
 
-
-
-
+	public Educacion(@NotNull @NotBlank String tituloEdu, @NotBlank String lugarEdu, int anioEdu, String urlEdu,
+			Usuario usuario) {
+		super();
+		this.tituloEdu = tituloEdu;
+		this.lugarEdu = lugarEdu;
+		this.anioEdu = anioEdu;
+		this.urlEdu = urlEdu;
+		this.usuario = usuario;
+	}
 
 	public Long getIdEdu() {
 		return idEdu;
@@ -90,22 +101,26 @@ public class Educacion implements Serializable {
 		this.anioEdu = anioEdu;
 	}
 
-
-
-
-
 	public String getUrlEdu() {
 		return urlEdu;
 	}
 
-
-
-
-
 	public void setUrlEdu(String urlEdu) {
 		this.urlEdu = urlEdu;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
     
+    
+    
+    
+   
 	
     
 }
