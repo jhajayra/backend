@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.jhajayramori.app.PortfolioApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 41.703 s - in com.jhajayramori.app.PortfolioApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 194.393 s - in com.jhajayramori.app.PortfolioApplicationTests
