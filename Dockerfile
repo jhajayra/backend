@@ -1,4 +1,4 @@
-FROM amazoncorretto:18-alpine-jdk
+FROM amazoncorreto:17
 MAINTAINER jhajayra
-COPY target/portfolio-0.0.1-SNAPSHOT.jar backjhaja-app.jar
-ENTRYPOINT ["JAVA", "-jar","/backjhaja-app.jar"]
+COPY target/portfolio-0.0.1-SNAPSHOT.jar back-app.jar
+ENTRYPOINT ["JAVA","-jar","/back-app.jar"]

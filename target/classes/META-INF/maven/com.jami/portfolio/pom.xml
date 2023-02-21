@@ -15,7 +15,7 @@
 	<name>portfolio</name>
 	<description>proyecto integrador ap</description>
 	<properties>
-		<java.version>18</java.version>
+		<java.version>17</java.version>
 		<start-class>com.jhajayramori.app.PortfolioApplication</start-class>
 	</properties>
 	<dependencies>
